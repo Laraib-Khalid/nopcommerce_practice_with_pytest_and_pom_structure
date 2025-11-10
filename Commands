@@ -1,0 +1,16 @@
+Installation:
+pip install selenium
+pip install pytest
+pip install pytest-html
+pip install pytest-xdist
+pip install allure-pytest
+
+
+Commands:
+pytest -rA -v --html=report.html --self-contained-html
+
+pytest -rA -v --html=reports/test_report.html --self-contained-html
+
+
+pytest -rA -v --html="reports/report_$(Get-Date -Format 'yyyy-MM-dd_HH-mm-ss').html" --self-contained-html
+
