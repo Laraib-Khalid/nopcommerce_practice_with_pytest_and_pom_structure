@@ -1,4 +1,5 @@
 from selenium.webdriver.common.by import By
+import time
 from base_pages.Login_Admin_Page import Login_Admin_Page
 from utilities.read_properties import Read_Config
 from utilities.custom_logger import Log_maker
@@ -39,7 +40,8 @@ class Test_01_Admin_Login:
         self.login_page.enter_password(self.password)
         self.login_page.select_remember_me_checkbox()
         self.login_page.click_login()
-        input("Paused... Press Enter to continue.")
+        # input("Paused... Press Enter to continue.")
+        time.sleep(30)
         act_dashboard_title = self.driver.find_element(By.XPATH, "//div[@class='content-header']//h1").text
         exp_dashboard_title = "Dashboard"
         if act_dashboard_title == exp_dashboard_title:
@@ -64,7 +66,8 @@ class Test_01_Admin_Login:
         self.login_page.enter_password(self.password)
         self.login_page.select_remember_me_checkbox()
         self.login_page.click_login()
-        input("Paused... Press Enter to continue.")
+        # input("Paused... Press Enter to continue.")
+        time.sleep(30)
         error_message = self.driver.find_element(By.XPATH, "//li").text
         if error_message == "No customer account found":
             self.logger.info("********** Error Message Found **********")

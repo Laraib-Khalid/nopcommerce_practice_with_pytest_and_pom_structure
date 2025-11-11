@@ -17,3 +17,5 @@ pytest -s -rA -v --html=reports/report.html --self-contained-html --browser fire
 
 pytest -rA -v --html="reports/report_$(Get-Date -Format 'yyyy-MM-dd_HH-mm-ss').html" --self-contained-html
 
+For Parallel Execution Command:
+pytest -s -rA -v --html=reports/report.html --self-contained-html -n 3
