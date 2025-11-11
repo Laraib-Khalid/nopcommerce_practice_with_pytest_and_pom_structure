@@ -11,6 +11,7 @@ pytest -rA -v --html=report.html --self-contained-html
 
 pytest -rA -v --html=reports/test_report.html --self-contained-html
 
+pytest -s -rA -v --html=reports/report.html --self-contained-html
 
 pytest -rA -v --html="reports/report_$(Get-Date -Format 'yyyy-MM-dd_HH-mm-ss').html" --self-contained-html
 
