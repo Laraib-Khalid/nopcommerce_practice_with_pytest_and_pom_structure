@@ -84,9 +84,9 @@ class Add_Customer_Page:
 
     def select_customer_role(self, customer_role):
         elements = self.driver.find_elements(By.XPATH, self.customer_role_list_id)
-
-        print(len(elements))
-        print("Locator used:", self.customer_role_list_id)
+        #
+        # print(len(elements))
+        # print("Locator used:", self.customer_role_list_id)
 
         if elements:
             customer_role_field = elements[0]
@@ -118,9 +118,9 @@ class Add_Customer_Page:
 
     def manager_of_vendor(self, vendor):
         elements = self.driver.find_elements(By.XPATH, self.customer_role_list_id)
-
-        print(len(elements))
-        print("Locator used:", self.customer_role_list_id)
+        #
+        # print(len(elements))
+        # print("Locator used:", self.customer_role_list_id)
 
         if elements:
             vendor_role_field = elements[1]

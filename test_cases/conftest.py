@@ -17,7 +17,10 @@ def browser(request):
 def setup(browser):
     """Run tests on Chrome, Firefox, or Edge."""
     driver = create_driver(browser)
-    return driver
+    # return driver
+    yield driver  # <-- yield hands control to the test, then resumes after test finishes
+    print("\n[TEARDOWN] Closing browser...")
+    driver.quit()
 
 
 # ************* For Pytest HTML Reports ****************

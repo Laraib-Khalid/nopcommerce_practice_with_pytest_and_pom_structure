@@ -75,15 +75,15 @@ class Test_02_Admin_Login_Data_Driven:
             self.excel.write_data(r, 4, result)
 
         print("Status List is: " , self.status_list)
-        if "Fail" in result:
+        if "Fail" in self.status_list:
             self.logger.info("********** Test Admin Data Driven is Failed **********")
             self.logger.info("********** Test Login Using Data Driven Approach Ending **********")
-            self.driver.quit()
+            # self.driver.quit()
             assert False
 
         else:
             self.logger.info("********** Test Admin Data Driven is Passed **********")
             self.logger.info("********** Test Login Using Data Driven Approach Ending **********")
             assert True
-            self.driver.quit()
+            # self.driver.quit()
 

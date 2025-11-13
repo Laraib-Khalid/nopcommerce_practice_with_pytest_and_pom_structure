@@ -24,12 +24,12 @@ class Test_01_Admin_Login:
             print("Title is matched")
             self.logger.info("********** Admin Login Page Title Matched **********")
             assert True
-            self.driver.quit()
+            # self.driver.quit()
         else:
             print("Title is not matched")
             self.driver.save_screenshot("screenshots/test_title_verification.png")
             self.logger.info("********** Admin Login Page Title Not Matched **********")
-            self.driver.quit()
+            # self.driver.quit()
             assert False
         # assert act_title == exp_title
     #
@@ -44,20 +44,20 @@ class Test_01_Admin_Login:
         self.login_page.enter_password(self.password)
         self.login_page.select_remember_me_checkbox()
         self.login_page.click_login()
-        # input("Paused... Press Enter to continue.")
-        time.sleep(30)
+        input("Paused... Press Enter to continue.")
+        # time.sleep(30)
         act_dashboard_title = self.driver.find_element(By.XPATH, "//div[@class='content-header']//h1").text
         exp_dashboard_title = "Dashboard"
         if act_dashboard_title == exp_dashboard_title:
             print("Dashboard title is matched")
             self.logger.info("********** Dashboard Text Matched **********")
             assert True
-            self.driver.quit()
+            # self.driver.quit()
         else:
             print("Dashboard title is not matched")
             self.driver.save_screenshot("screenshots/test_valid_login.png")
             self.logger.info("********** Dashboard Text Not Matched **********")
-            self.driver.quit()
+            # self.driver.quit()
             assert False
 
 
@@ -71,15 +71,15 @@ class Test_01_Admin_Login:
         self.login_page.enter_password(self.password)
         self.login_page.select_remember_me_checkbox()
         self.login_page.click_login()
-        # input("Paused... Press Enter to continue.")
-        time.sleep(30)
+        input("Paused... Press Enter to continue.")
+        # time.sleep(30)
         error_message = self.driver.find_element(By.XPATH, "//li").text
         if error_message == "No customer account found":
             self.logger.info("********** Error Message Found **********")
             assert True
-            self.driver.quit()
+            # self.driver.quit()
         else:
             self.driver.save_screenshot("screenshots/test_invalid_login.png")
             self.logger.info("********** Error Message Not Found **********")
-            self.driver.quit()
+            # self.driver.quit()
             assert False

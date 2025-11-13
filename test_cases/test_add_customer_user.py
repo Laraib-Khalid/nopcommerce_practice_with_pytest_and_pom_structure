@@ -1,3 +1,5 @@
+import time
+
 from faker import Faker
 import pytest
 from selenium.webdriver.common.by import By
@@ -43,6 +45,7 @@ class Test_03_Add_Customer:
             assert False
 
         self.customer_page = Add_Customer_Page(self.driver)
+        time.sleep(5)
         self.customer_page.click_customer_menu()
         self.customer_page.click_customer_sub_menu()
         self.customer_page.click_add_button()
@@ -72,11 +75,11 @@ class Test_03_Add_Customer:
         if act_success_message in exp_success_message:
             self.logger.info("********** Test_03 Add Customer Test Case is Passed **********")
             assert True
-            self.driver.quit()
+            # self.driver.quit()
         else:
             self.logger.info("********** Test_03 Add Customer Test Case is Failed **********")
             self.driver.save_screenshot("screenshots/add_new_customer.png")
-            self.driver.quit()
+            # self.driver.quit()
             assert False
 
 
