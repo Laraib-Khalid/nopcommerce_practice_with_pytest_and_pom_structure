@@ -5,6 +5,8 @@ pip install pytest-html
 pip install pytest-xdist
 pip install allure-pytest
 pip install openpyxl
+pip install faker
+
 
 Commands:
 pytest -rA -v --html=report.html --self-contained-html
@@ -15,7 +17,9 @@ pytest -s -rA -v --html=reports/report.html --self-contained-html
 
 pytest -s -rA -v --html=reports/report.html --self-contained-html --browser firefox
 
-pytest -rA -v --html="reports/report_$(Get-Date -Format 'yyyy-MM-dd_HH-mm-ss').html" --self-contained-html
+pytest -s -rA -v --html="reports/report_$(Get-Date -Format 'yyyy-MM-dd_HH-mm-ss').html" --self-contained-html
+
+pytest -s -rA -v --html="reports/report_$(Get-Date -Format 'yyyy-MM-dd_HH-mm-ss').html" --self-contained-html test_cases/test_add_customer_user.py
 
 For Parallel Execution Command:
 pytest -s -rA -v --html=reports/report.html --self-contained-html -n 3
