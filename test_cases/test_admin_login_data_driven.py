@@ -25,6 +25,7 @@ class Test_02_Admin_Login_Data_Driven:
     def test_login_data_driven(self, setup):
         self.logger.info("********** Test Login Using Data Driven Approach Starting **********")
         self.driver = setup
+        self.driver.implicitly_wait(10)
         self.login_page = Login_Admin_Page(self.driver)
         self.driver.get(self.admin_page_url)
 
