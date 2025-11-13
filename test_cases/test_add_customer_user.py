@@ -1,5 +1,5 @@
 from faker import Faker
-import time
+import pytest
 from selenium.webdriver.common.by import By
 from base_pages.Login_Admin_Page import Login_Admin_Page
 from base_pages.Add_Customer_Page import Add_Customer_Page
@@ -13,6 +13,9 @@ class Test_03_Add_Customer:
     password = Read_Config.get_password()
     logger = Log_maker.log_gen()
 
+
+    @pytest.mark.smoke
+    @pytest.mark.regression
     def test_add_customer(self, setup):
         self.logger.info("********** Test_03 Add Customer Test Case Starting **********")
         self.driver = setup

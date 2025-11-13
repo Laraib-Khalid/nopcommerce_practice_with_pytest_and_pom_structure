@@ -23,3 +23,17 @@ pytest -s -rA -v --html="reports/report_$(Get-Date -Format 'yyyy-MM-dd_HH-mm-ss'
 
 For Parallel Execution Command:
 pytest -s -rA -v --html=reports/report.html --self-contained-html -n 3
+
+
+
+
+Exclude a marker (NOT condition):
+pytest -v -m "not smoke"
+
+| Command                               | Meaning                             |
+| ------------------------------------- | ----------------------------------- |
+| `pytest -v -m "smoke"`                | Run only smoke tests                |
+| `pytest -v -m "regression"`           | Run only regression tests           |
+| `pytest -v -m "smoke or regression"`  | Run both smoke and regression tests |
+| `pytest -v -m "smoke and regression"` | Run only tests having both markers  |
+| `pytest -v -m "not regression"`       | Run all except regression tests     |

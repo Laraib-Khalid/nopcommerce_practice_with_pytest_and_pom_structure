@@ -1,5 +1,6 @@
 from selenium.webdriver.common.by import By
 import time
+import pytest
 from base_pages.Login_Admin_Page import Login_Admin_Page
 from utilities.read_properties import Read_Config
 from utilities.custom_logger import Log_maker
@@ -11,6 +12,7 @@ class Test_01_Admin_Login:
     invalid_username = Read_Config.get_invalid_username()
     logger = Log_maker.log_gen()
 
+    @pytest.mark.smoke
     def test_title_verification(self, setup):
         self.logger.info("********** Test_01_Admin_Login **********")
         self.logger.info("********** Verification of Admin Login Page Title **********")
@@ -31,6 +33,8 @@ class Test_01_Admin_Login:
             assert False
         # assert act_title == exp_title
     #
+
+    @pytest.mark.regression
     def test_valid_login(self, setup):
         self.logger.info("********** Test Valid Login Started **********")
         self.driver = setup
@@ -57,6 +61,7 @@ class Test_01_Admin_Login:
             assert False
 
 
+    @pytest.mark.regression
     def test_invalid_login(self, setup):
         self.logger.info("********** Test Invalid Login Started **********")
         self.driver = setup
