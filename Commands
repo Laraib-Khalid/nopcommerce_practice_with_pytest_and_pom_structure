@@ -15,10 +15,16 @@ pytest -rA -v --html=reports/test_report.html --self-contained-html
 
 pytest -s -rA -v --html=reports/report.html --self-contained-html
 
+
+For different Browser Command:
 pytest -s -rA -v --html=reports/report.html --self-contained-html --browser firefox
 
+
+To add Date and Time when saving HTML Report:
 pytest -s -rA -v --html="reports/report_$(Get-Date -Format 'yyyy-MM-dd_HH-mm-ss').html" --self-contained-html
 
+
+For specific execute single Test File:
 pytest -s -rA -v --html="reports/report_$(Get-Date -Format 'yyyy-MM-dd_HH-mm-ss').html" --self-contained-html test_cases/test_add_customer_user.py
 
 For Parallel Execution Command:
