@@ -18,7 +18,6 @@ def browser(request):
 def driver(browser):
     """Run tests on Chrome, Firefox, or Edge."""
     driver = create_driver(browser)
-    driver.implicitly_wait(10)
     admin_page_url = Read_Config.get_admin_page_url()
     driver.get(admin_page_url)
     # return driver

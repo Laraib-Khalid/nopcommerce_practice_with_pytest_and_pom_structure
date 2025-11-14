@@ -56,4 +56,8 @@ def create_driver(browser):
 
     else:
         raise ValueError(f"Browser '{browser}' is not supported. Choose 'chrome', 'firefox', or 'edge'.")
+
+
+    driver.maximize_window()
+    driver.implicitly_wait(10)
     return driver
