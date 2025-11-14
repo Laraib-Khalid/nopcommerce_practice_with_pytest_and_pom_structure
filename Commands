@@ -33,6 +33,26 @@ For Parallel Execution Command:
 pytest -s -rA -v --html=reports/report.html --self-contained-html -n 3
 
 
+To use fixture in class:
+
+@pytest.fixture(scope="class")
+def setup(browser, request):
+    driver = create_driver(browser)
+    request.cls.driver = driver  # attach driver to the test class
+    yield
+    driver.quit()
+
+
+
+@pytest.mark.usefixtures("setup")
+class TestLogin:
+    def test_open_page(self):
+        self.driver.get("https://example.com")
+
+    def test_title(self):
+        assert "Example" in self.driver.title
+
+
 
 For Allure Reporting:
 pytest -s -rA -v --alluredir="allure-results"
