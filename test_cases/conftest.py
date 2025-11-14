@@ -1,22 +1,26 @@
 import pytest
 from pytest_metadata.plugin import metadata_key
 from utilities.driver import create_driver
+from utilities.read_properties import Read_Config
 
 
 def pytest_addoption(parser):
     parser.addoption("--browser", action="store", default="chrome", help="Browser name (chrome or firefox)")
 
 
-@pytest.fixture()
+@pytest.fixture(scope="session")
 def browser(request):
     browser = request.config.getoption("--browser")
     return browser
 
 
-@pytest.fixture()
-def setup(browser):
+@pytest.fixture(scope="session")
+def driver(browser):
     """Run tests on Chrome, Firefox, or Edge."""
     driver = create_driver(browser)
+    driver.implicitly_wait(10)
+    admin_page_url = Read_Config.get_admin_page_url()
+    driver.get(admin_page_url)
     # return driver
     yield driver  # <-- yield hands control to the test, then resumes after test finishes
     print("\n[TEARDOWN] Closing browser...")

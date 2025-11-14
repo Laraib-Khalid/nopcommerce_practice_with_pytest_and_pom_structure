@@ -1,12 +1,15 @@
 from selenium.webdriver.common.by import By
 import time
+import pytest
 from base_pages.Login_Admin_Page import Login_Admin_Page
 from utilities.read_properties import Read_Config
 from utilities.custom_logger import Log_maker
 from utilities.excel_utils import ExcelUtils
 
+
+@pytest.mark.order(2)
 class Test_02_Admin_Login_Data_Driven:
-    admin_page_url = Read_Config.get_admin_page_url()
+    # admin_page_url = Read_Config.get_admin_page_url()
 
     # Path to your Excel
     excel_path = "test_data/admin_login_data.xlsx"
@@ -22,12 +25,12 @@ class Test_02_Admin_Login_Data_Driven:
 
 
 
-    def test_login_data_driven(self, setup):
+    def test_login_data_driven(self, driver):
         self.logger.info("********** Test Login Using Data Driven Approach Starting **********")
-        self.driver = setup
-        self.driver.implicitly_wait(10)
-        self.login_page = Login_Admin_Page(self.driver)
-        self.driver.get(self.admin_page_url)
+        # self.driver = setup
+        # self.driver.implicitly_wait(10)
+        self.login_page = Login_Admin_Page(driver)
+        # self.driver.get(self.admin_page_url)
 
         # Read total rows
         rows = self.excel.get_row_count()
@@ -46,7 +49,7 @@ class Test_02_Admin_Login_Data_Driven:
             self.login_page.click_login()
             input("Paused... Press Enter to continue.")
             # time.sleep(30)
-            act_title = self.driver.title
+            act_title = driver.title
             exp_title = "Dashboard / nopCommerce administration"
             if act_title == exp_title:
                 if expected_login == "Yes":

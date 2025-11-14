@@ -6,6 +6,8 @@ pip install pytest-xdist
 pip install allure-pytest
 pip install openpyxl
 pip install faker
+pip install pytest-order
+
 
 
 Commands:
@@ -31,6 +33,13 @@ For Parallel Execution Command:
 pytest -s -rA -v --html=reports/report.html --self-contained-html -n 3
 
 
+
+For Allure Reporting:
+pytest -s -rA -v --alluredir="allure-results"
+
+
+To Generate Allure Report:
+allure serve allure-results
 
 
 Exclude a marker (NOT condition):
