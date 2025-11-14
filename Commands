@@ -26,7 +26,7 @@ To add Date and Time when saving HTML Report:
 pytest -s -rA -v --html="reports/report_$(Get-Date -Format 'yyyy-MM-dd_HH-mm-ss').html" --self-contained-html
 
 
-For specific execute single Test File:
+For Specific Execute Single Test File:
 pytest -s -rA -v --html="reports/report_$(Get-Date -Format 'yyyy-MM-dd_HH-mm-ss').html" --self-contained-html test_cases/test_add_customer_user.py
 
 For Parallel Execution Command:
