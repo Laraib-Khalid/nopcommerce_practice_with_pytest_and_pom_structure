@@ -7,7 +7,6 @@ from utilities.read_properties import Read_Config
 def pytest_addoption(parser):
     parser.addoption("--browser", action="store", default="chrome", help="Browser name (chrome or firefox)")
 
-
 @pytest.fixture(scope="session")
 def browser(request):
     browser = request.config.getoption("--browser")

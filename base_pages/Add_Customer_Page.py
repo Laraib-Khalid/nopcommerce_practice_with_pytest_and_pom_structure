@@ -43,6 +43,7 @@ class Add_Customer_Page:
         self.wait.until(EC.element_to_be_clickable((By.XPATH, self.customer_menu_xpath)))
         self.driver.find_element(By.XPATH, self.customer_menu_xpath).click()
 
+
     def click_customer_sub_menu(self):
         self.driver.find_element(By.XPATH, self.customer_sub_menu_xpath).click()
 
